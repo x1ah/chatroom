@@ -4,8 +4,9 @@
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="../static/css/chatroom.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/chatroom.css') }}"  media="screen,projection"/>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -32,19 +33,18 @@
             <input id="password" type="password" class="validate">
             <label for="password">密码</label>
           </div>
-          <div class="next">
-            <a class="login">Login >>></a>
+          <div class="pre">
+            <a class="registerPage"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 注册<a>
           </div>
           <div class="next">
-            <button class="btn waves-effect waves-light" type="submit" name="action">登录 >>>
-            </button>
+            <a class="login">登录 <i class="fa fa-angle-double-right" aria-hidden="true"></i><a>
           </div>
         </form>
       </div>
     </div>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../static/js/materialize.min.js"></script>
-    <script type="text/javascript" src="../static/js/chatroom.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/chatroom.js') }}"></script>
   </body>
 </html>
