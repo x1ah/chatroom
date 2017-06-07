@@ -1,48 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
-    <meta charset='utf-8'>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/chatroom.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/chat.box.css') }}"  media="screen,projection"/>
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
+
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+    <header>
+      <nav class="chat-index top-nav">
+        <div class="container">
+          <div class="nav-wrapper">
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="msgHistory">
+      <div class="sender">  
+        <div>  
+          <img src="chatTemplateExample2_files/cat.jpg">  
+        </div>  
+        <div>  
+          <div class="left_triangle"></div>  
+          <span> 欢迎！</span>  
+        </div>  
+      </div>  
+      <!-- Right -->  
+      <div class="receiver">  
+        <div>  
+          <img src="chatTemplateExample2_files/cat.jpg">  
+        </div>  
+        <div>
+          <div class="right_triangle"></div>
+          <span> hello world </span>
+        </div>
+      </div>
+    </div>
+
+
+    <form class="input-msg">
+        <div class="input-field col s5">
+          <input id="inputMsg" type="text" class="validate">
+          <label for="inputMsg">输入消息...</label>
+        </div>
+        <input value="发送" type="submit" class="sendmsg">
     </form>
+
+    <!--
+    <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
+        <li class="bold "><a href="/about.html" class="waves-effect waves-teal">关于我们</a></li>
+        <li class="bold "><a href="/getting-started.html" class="waves-effect waves-teal">开始学习</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">CSS</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li class=""><a href="/color.html">颜色</a></li>
+                  <li class=""><a href="/grid.html">网格</a></li>
+                  <li class=""><a href="/helpers.html">助手</a></li>
+                  <li class=""><a href="/media-css.html">媒体</a></li>
+                  <li class=""><a href="/sass.html">Sass</a></li>
+                  <li class=""><a href="/shadow.html">阴影效果</a></li>
+                  <li class=""><a href="/table.html">表格</a></li>
+                  <li class=""><a href="/typography.html">字体样式</a></li>
+                </ul>
+              </div>
+            </li>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    -->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/socket.io.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script charset='utf-8'>
-    $(function () {
-      var socket = io();
-      socket.on('connect', function() {
-        socket.emit('message', {msg: 'user connected'});
-      });
-
-      socket.on('disconnect', function() {
-        socket.emit('message', {msg: 'user disconnected'});
-      });
-
-      socket.on('response', function(msg){
-        $('#messages').append($('<li>').text(msg));
-      });
-      $('form').submit(function(){
-        console.log($('#m').val());
-        socket.emit('message', {msg: $('#m').val()});
-        $('#m').val('');
-        return false;
-      });
-
-    });
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/chatroom.js') }}"></script>
   </body>
 </html>

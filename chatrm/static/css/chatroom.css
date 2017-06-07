@@ -1,24 +1,3 @@
-/* 聊天对话框实现 */
-.msg {
-    display: flex;
-    justify-content: space-between;
-}
-.msg .tri {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 10px 15px 0;
-    border-color: transparent #ffffff transparent transparent;
-}
-.msg_inner {
-    background-color: #fff;
-    width: 100%;
-    padding: 15px 10px;
-    border-radius: 0 4px 4px 4px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
 body {
   background: rgb(231, 235, 240);
 }
@@ -29,7 +8,10 @@ body {
 }
 
 .login-panel-height {
-  height: 30em;
+  height: 24em;
+}
+.register-panel-height {
+  height: 28em;
 }
 .login-sign {
   text-align: center;
@@ -40,4 +22,52 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: -4em;
+}
+
+.next {
+  float: right;
+  margin-top: 2.3em;
+  margin-right: 2.3em;
+}
+
+.pre {
+  float: left;
+  margin-top: 2.3em;
+  margin-left: 2.3em;
+}
+
+.login {
+  color: #5682a3;
+  font-size: 1.3em;
+}
+.registerPage {
+  color: #5682a3;
+  font-size: 1.3em;
+}
+.chat-index{
+  background-color: #5682a3;
+  height: 3em;
+  width: 60em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input-msg {
+  position: absolute;
+  width: 60em;
+  margin: auto;
+  left: 0em;
+  right: 0em;
+  bottom: 0em;
+}
+.msgHistory {
+  width: 60em;
+  margin: auto;
+  margin-top: 1.8em;
+}
+.sendmsg {
+  float: right;
+  color: #5682a3;
+  border: 0;
+  background: rgb(231, 235, 240);
+  font-size: 20px;
 }
