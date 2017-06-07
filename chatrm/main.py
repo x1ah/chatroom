@@ -55,9 +55,9 @@ class UserManager(object):
         self.db = UserDB
         self.db['user_nums'] = 0
 
-    def create(self, username, password):
+    def create(self, username, password, nickname=''):
         if username not in self.db:
-            self.db[username] = User(username, password)
+            self.db[username] = User(username, password, nickname)
             self.db['user_nums'] += 1
             return self.db.get(username)
         else:
@@ -140,14 +140,31 @@ def logout():
     logout_user()
     return redirect('/login')
 
+@socketio.on('user_connect')
+def  connc():
+    socketio.emit('response',
+                  {'user': '系统消息',
+                   'msg': '欢迎 {} 加入房间'.format(current_user.nickname)},
+                  json=True)
+
+@socketio.on('user_disconnect')
+def disconnc():
+    socketio.emit('response',
+                  {'user': '系统消息',
+                   'msg': '{} 离开房间'.format(current_user.nickname)},
+                  json=True)
+
 @socketio.on('message')
 def chat(msg):
-    print('recv msg: {}'.format(msg))
-    socketio.emit('response', msg.get('msg'))
+    socketio.emit('response',
+                  {'user': current_user.nickname,
+                   'msg': msg.get('msg')},
+                  json=True)
 
 def load_data():
     global user_manager
     user_manager = UserManager()
+    user_manager.create('a', '1', nickname="系统管理员")
 
 
 if __name__ == "__main__":
