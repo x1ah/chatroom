@@ -42,7 +42,7 @@ $(document).ready(function(){
       $('#messages').append($('<li>').text(msg));
       var empty_div = $('<div />');
       var send_div = $('<div />', {"class": "sender"});
-      var avater = $('<img />', {"src": "chatTemplateExample2_files/cat.jpg"});
+      var avater = $('<img />', {"src": '/static/images/github.png'});
       avater.appendTo(empty_div);
       empty_div.appendTo(send_div);
       var empty_div = $('<div />');
