@@ -15,45 +15,29 @@
   </head>
 
   <body>
-    <header>
-      <nav class="chat-index top-nav">
-        <div class="container">
-          <div class="nav-wrapper">
+    <div class="container">
+      <header>
+        <nav class="chat-index top-nav">
+          <div class="container">
+            <div class="nav-wrapper">
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
 
-    <div class="msgHistory">
-      <div class="sender">  
-        <div>  
-          <img src="{{ url_for('static', filename='images/github.png') }}">  
-        </div>  
-        <div>  
-          <div class="left_triangle"></div>  
-          <span> 欢迎！</span>  
-        </div>  
-      </div>  
-      <!-- Right -->  
-      <div class="receiver">  
-        <div>  
-          <img src="{{ url_for('static', filename='images/github.png') }}">  
-        </div>  
-        <div>
-          <div class="right_triangle"></div>
-          <span> hello world </span>
-        </div>
+      <div class="msgHistory">
+        <!-- Right -->
       </div>
+
+
+      <form class="input-msg">
+          <div class="input-field col s5">
+            <input id="inputMsg" type="text" class="validate">
+            <label for="inputMsg">输入消息...</label>
+          </div>
+          <input value="发送" type="submit" class="sendmsg">
+      </form>
     </div>
-
-
-    <form class="input-msg">
-        <div class="input-field col s5">
-          <input id="inputMsg" type="text" class="validate">
-          <label for="inputMsg">输入消息...</label>
-        </div>
-        <input value="发送" type="submit" class="sendmsg">
-    </form>
 
     <!--
     <ul id="nav-mobile" class="side-nav fixed" style="transform: translateX(0%);">
