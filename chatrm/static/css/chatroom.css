@@ -47,22 +47,23 @@ body {
 .chat-index{
   background-color: #5682a3;
   height: 3em;
-  width: 60em;
   margin-left: auto;
   margin-right: auto;
 }
 .input-msg {
   position: absolute;
-  width: 60em;
+  width: 70%;
   margin: auto;
   left: 0em;
   right: 0em;
   bottom: 0em;
 }
 .msgHistory {
-  width: 60em;
   margin: auto;
   margin-top: 1.8em;
+  height: 55em;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .sendmsg {
   float: right;

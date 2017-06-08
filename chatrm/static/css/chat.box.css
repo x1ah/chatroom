@@ -7,7 +7,7 @@
 .sender div:nth-of-type(2){
     background-color: aquamarine;
     float: left;
-    margin: 0 20px 10px 15px;
+    margin: 20px 20px 10px 15px;
     padding: 10px 10px 10px 0px;
     border-radius:7px;
 }
@@ -26,8 +26,9 @@
 }
 .receiver div:nth-of-type(2){
     float:right;
+    max-width: 70%;
     background-color: gold;
-    margin: 0 10px 10px 20px;
+    margin: 20px 10px 10px 20px;
     padding: 10px 0px 10px 10px;
     border-radius:7px;
 }
@@ -52,4 +53,24 @@
     position: relative;
     right:-16px;
     top:3px;
+}
+.nickname_left {
+  height: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-size: 10px;
+  margin-bottom: 0px;
+  padding-left: 66px;
+  padding-right: 66px;
+  text-align: start;
+}
+.nickname_right {
+  height: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  font-size: 10px;
+  margin-bottom: 0px;
+  padding-left: 66px;
+  padding-right: 66px;
+  text-align: end;
 }
