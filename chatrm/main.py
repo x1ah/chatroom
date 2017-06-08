@@ -142,24 +142,34 @@ def logout():
 
 @socketio.on('user_connect')
 def  connc():
-    socketio.emit('response',
-                  {'user': '系统消息',
-                   'msg': '欢迎 {} 加入房间'.format(current_user.nickname)},
-                  json=True)
+    response = {
+        'user': current_user.username,
+        'user_nickname': current_user.nickname,
+        'sender_nickname': '系统消息',
+        'msg': '欢迎 {} 加入房间'.format(current_user.nickname)
+    }
+    socketio.emit('init', response, json=True)
 
 @socketio.on('user_disconnect')
 def disconnc():
     socketio.emit('response',
-                  {'user': '系统消息',
+                  {'user': current_user.username,
+                    'user_nickname': current_user.nickname,
+                    'sender_nickname': '系统消息',
                    'msg': '{} 离开房间'.format(current_user.nickname)},
                   json=True)
 
 @socketio.on('message')
 def chat(msg):
     socketio.emit('response',
-                  {'user': current_user.nickname,
+                  {'user': current_user.username,
+                    'user_nickname': current_user.nickname,
                    'msg': msg.get('msg')},
                   json=True)
+
+@socketio.on('send')
+def send_msg(msg):
+    socketio.emit('response')
 
 def load_data():
     global user_manager
