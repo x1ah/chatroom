@@ -2,6 +2,7 @@
 <html>
   <head>
     <!--Import Google Icon Font-->
+    <link rel="icon" href="static/images/github.png" type="image/x-icon">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
@@ -12,6 +13,7 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>H 聊天室</title>
   </head>
 
   <body>
@@ -19,7 +21,7 @@
       <header>
         <nav class="chat-index top-nav">
           <div class="container">
-            <div class="nav-wrapper">
+            <div class="nav-wrapper">公众聊天室
             </div>
           </div>
         </nav>
@@ -32,7 +34,7 @@
 
       <form class="input-msg">
           <div class="input-field col s5">
-            <input id="inputMsg" type="text" class="validate">
+            <input id="inputMsg" type="text" class="validate" autocomplete="off">
             <label for="inputMsg">输入消息...</label>
           </div>
           <input value="发送" type="submit" class="sendmsg">

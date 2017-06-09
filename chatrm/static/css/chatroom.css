@@ -46,7 +46,6 @@ body {
 }
 .chat-index{
   background-color: #5682a3;
-  height: 3em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -71,4 +70,10 @@ body {
   border: 0;
   background: rgb(231, 235, 240);
   font-size: 20px;
+}
+
+nav .nav-wrapper {
+  text-align: center;
+  font-size: large;
+  font-family: sans-serif;
 }
