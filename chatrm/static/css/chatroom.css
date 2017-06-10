@@ -39,10 +39,20 @@ body {
 .login {
   color: #5682a3;
   font-size: 1.3em;
+  border: 0px;
+  background: white;
 }
 .registerPage {
   color: #5682a3;
   font-size: 1.3em;
+  border: 0px;
+  background: white;
+}
+.register {
+  color: #5682a3;
+  font-size: 1.3em;
+  border: 0px;
+  background: white;
 }
 .chat-index{
   background-color: #5682a3;
