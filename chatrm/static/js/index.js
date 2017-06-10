@@ -1,46 +1,4 @@
-$(document).ready(function(){
-
-  current_user = '';
-
-  $(".login").click(function(){
-    $.post("/login",
-      {
-        username:$("#username").val(),
-        password: $("#password").val()
-      },
-      function(result, status) {
-        console.log(result, status);
-        window.location.href = "/";
-      });
-    });
-
-  $(".registerPage").click(function(){
-    window.location.href = "/register";
-  });
-
-  $(".register").click(function(){
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var repassword = $("#password_repeat").val();
-    if (!username || !password || !repassword) {
-      alert("请填写用户名或密码");
-      return false;
-    }
-    if (password != repassword) {
-      alert("密码不匹配");
-      return false;
-    }
-    $.post("/register",
-      {
-        username: $("#username").val(),
-        password: $("#password").val()
-      },
-      function(result, status) {
-        window.location.href = "/";
-      });
-  });
-
-  $(function() {
+function chat() {
     var socket = io();
     socket.on('connect', function() {
       socket.emit('user_connect');
@@ -64,7 +22,9 @@ $(document).ready(function(){
         appendGroupMessage(msg['msg'], msg['user_nickname'], 'left');
       }
     });
+}
 
+function submitMsg() {
     $('form').submit(function(){
       if ($('#inputMsg').val() != "") {
         socket.emit('message', {msg: $('#inputMsg').val()});
@@ -72,16 +32,17 @@ $(document).ready(function(){
       }
       return false;
     });
-  });
-});
+}
 
-var appendGroupMessage = function(msg_content, nickname, position) {
+function appendGroupMessage(msg_content, nickname, position) {
   var empty_div = $('<div />');
   if (position == 'left') {
     var send_div = $('<div />', {"class": "sender"});
+    // 群消息显示成员昵称
     var nickname = $('<p />', {"class": "nickname_left"}).text(nickname);
   } else {
     var send_div = $('<div />', {"class": "receiver"});
+    // 群消息显示成员昵称
     var nickname = $('<p />', {"class": "nickname_right"}).text(nickname);
   }
   var avater = $('<img />', {"src": '/static/images/github.png'});
@@ -104,10 +65,17 @@ var appendGroupMessage = function(msg_content, nickname, position) {
   scrollToBottom();
 }
 
-var scrollToBottom = function() {
+function scrollToBottom() {
   // 每个消息框内容都是 span 标签
   var msg = document.getElementsByTagName("span");
   if (msg.length > 0) {
     msg[msg.length-1].scrollIntoView();
   };
-};
+}
+
+
+$(document).ready(function() {
+  current_user = '';
+  chat();
+  submitMsg();
+});
