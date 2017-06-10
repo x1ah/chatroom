@@ -36,17 +36,22 @@
             <label for="password">密码</label>
           </div>
           <div class="pre">
-            <a class="registerPage"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 注册<a>
+            <button class="registerPage"><i class="fa fa-angle-double-left" aria-hidden="true"></i> 注册</button>
           </div>
           <div class="next">
-            <a class="login">登录 <i class="fa fa-angle-double-right" aria-hidden="true"></i><a>
+            <button class="login">登录 <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
           </div>
         </form>
       </div>
     </div>
+    {% for message in get_flashed_messages() %}
+      <script>
+        alert("{{message}}")
+      </script>
+    {% endfor %}
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/chatroom.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
   </body>
 </html>

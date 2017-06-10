@@ -66,10 +66,15 @@
         </li>
       </ul>
     -->
+    {% for message in get_flashed_messages() %}
+      <script>
+        alert("{{message}}")
+      </script>
+    {% endfor %}
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/socket.io.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/chatroom.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>
